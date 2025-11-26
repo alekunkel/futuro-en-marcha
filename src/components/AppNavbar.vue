@@ -87,23 +87,27 @@ watch(route, () => {
     </div>
   </Transition>
 </template>
-
 <style scoped>
-/* --- 1. ESTRUCTURA FIJA --- */
+/* --- 1. ESTRUCTURA FIJA (CORREGIDA) --- */
 .navbar-fixed {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0; /* CAMBIO CLAVE: Anclar a ambos lados */
   z-index: 1000;
   padding: 1rem;
-  pointer-events: none; /* Permite clicks a los lados si la barra no es full width */
+
+  /* Esto centra el contenedor hijo perfectamente */
+  display: flex;
+  justify-content: center;
+
+  pointer-events: none; /* Permite clicks a los lados de la barra */
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  pointer-events: auto; /* Reactiva clicks en la barra */
+  width: 100%; /* Ocupa todo el espacio disponible... */
+  max-width: 1200px; /* ...hasta llegar a 1200px */
+  pointer-events: auto; /* Reactiva los clicks en la barra */
 }
 
 /* --- 2. BARRA DE CRISTAL --- */
@@ -118,7 +122,7 @@ watch(route, () => {
   border: 1px solid rgba(255, 255, 255, 0.8);
 
   padding: 0.5rem 0.75rem;
-  border-radius: 99px; /* Forma de píldora */
+  border-radius: 99px;
   box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
 }
 
@@ -171,7 +175,7 @@ watch(route, () => {
 
 /* --- 4. MENÚ ESCRITORIO --- */
 .desktop-nav {
-  display: none; /* Oculto en móvil */
+  display: none;
   gap: 0.5rem;
 }
 
@@ -195,7 +199,7 @@ watch(route, () => {
   color: var(--c-white) !important;
 }
 
-/* --- 5. MENÚ MÓVIL (BOTÓN Y OVERLAY) --- */
+/* --- 5. MENÚ MÓVIL --- */
 .menu-toggle {
   background: var(--c-slate-100);
   border: none;
@@ -279,7 +283,7 @@ watch(route, () => {
   .desktop-nav { display: flex; }
 }
 
-/* --- ANIMACIÓN DE ENTRADA --- */
+/* --- ANIMACIONES --- */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.25s ease;
