@@ -11,7 +11,7 @@ import Marquee from "../components/TextMarquee.vue";
     <section class="py-12 text-center">
       <p class="text-slate-500 mb-4">¿Estás listo para competir?</p>
       <RouterLink to="/desafios" class="text-cyan-600 font-bold underline decoration-wavy hover:text-cyan-700">
-        Ver el desafío de la semana &rarr;
+        Ver el próximo desafío &rarr;
       </RouterLink>
     </section>
   </div>

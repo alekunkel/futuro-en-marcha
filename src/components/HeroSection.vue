@@ -34,9 +34,6 @@ import { RouterLink } from 'vue-router';
 
         </div>
 
-        <div class="image-column">
-          <div class="image-composition">
-
             <div class="deco-backdrop"></div>
 
             <div class="floating-sticker">
@@ -46,9 +43,6 @@ import { RouterLink } from 'vue-router';
           </div>
         </div>
 
-      </div>
-
-    </div>
   </header>
 </template>
 
