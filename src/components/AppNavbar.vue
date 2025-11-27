@@ -116,6 +116,11 @@ watch(route, () => {
   align-items: center;
   justify-content: space-between;
 
+  /* Asegurarnos de que el contenedor se ajuste y pueda encogerse en pantallas pequeñas */
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+
   /* Efecto Vidrio */
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
@@ -156,6 +161,10 @@ watch(route, () => {
   display: flex;
   flex-direction: column;
   line-height: 1;
+
+  /* Permitir que el texto reduzca su tamaño y no provoque overflow en el contenedor flex */
+  min-width: 0;
+  overflow: hidden;
 }
 
 .brand-title {
@@ -171,6 +180,32 @@ watch(route, () => {
   font-size: 0.8rem;
   color: var(--c-cyan-600);
   text-transform: uppercase;
+}
+
+/* Evitar que el texto del logo haga wrap y provoque que la barra cambie de altura */
+.brand-title,
+.brand-subtitle {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Ajustes específicos para móviles muy pequeños */
+@media (max-width: 420px) {
+  .navbar-fixed { padding: 0.5rem; }
+
+  .glass-bar {
+    padding: 0.35rem 0.5rem;
+    gap: 0.5rem;
+    border-radius: 18px; /* menos exagerado en móvil */
+  }
+
+  .logo-circle { width: 2.25rem; height: 2.25rem; }
+
+  .brand-title { font-size: 0.85rem; }
+  .brand-subtitle { display: none; } /* ocultamos el subtítulo en móviles muy pequeños */
+
+  .menu-toggle { width: 2.4rem; height: 2.4rem; font-size: 1.2rem; }
 }
 
 /* --- 4. MENÚ ESCRITORIO --- */
